@@ -15,14 +15,22 @@ Already a pro? Just edit this README.md and make it your own. Want to make it ea
 
 ```
 cd existing_repo
+<<<<<<< HEAD
 git remote add origin https://gitlab.cabotsolutions.com/project-templates/nodejs-sequelize-orm-template.git
+=======
+git remote add origin https://gitlab.cabotsolutions.com/aaoms/oae-api.git
+>>>>>>> 5357d8a (initial commit)
 git branch -M master
 git push -uf origin master
 ```
 
 ## Integrate with your tools
 
+<<<<<<< HEAD
 - [ ] [Set up project integrations](https://gitlab.cabotsolutions.com/project-templates/nodejs-sequelize-orm-template/-/settings/integrations)
+=======
+- [ ] [Set up project integrations](https://gitlab.cabotsolutions.com/aaoms/oae-api/-/settings/integrations)
+>>>>>>> 5357d8a (initial commit)
 
 ## Collaborate with your team
 

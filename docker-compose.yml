@@ -1,0 +1,13 @@
+version: '3.4'
+services:
+    api:
+        image: oae-api
+        build:
+            context: .
+            dockerfile: Dockerfile
+        container_name: oae-api
+        ports:
+            - "5610:8026"
+        tty: true
+        stdin_open: true
+        restart: unless-stopped
