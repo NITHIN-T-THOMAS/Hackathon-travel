@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const app = express.Router();
 const controller = require('../controllers/controller');
+const usersController = require('../controllers/userControllers');
 
 require('express-group-routes');
 
@@ -16,6 +17,8 @@ app.get('/api', (req, res) => {
 // API group for mobile app
 app.group("/api/v1", (router) => {
     router.get('/health', controller.healthCheck);
+    router.post('/create-user', usersController.userSignUp);
+    router.get('/predictions', usersController.predictions);
 });
 
 // API group for web app

@@ -5,17 +5,29 @@ const os = require('os');
 require('dotenv').config()
 
 const app = express();
+// parse requests of content-type - application/json
+app.use(express.json());
+// parse requests of content-type - application/x-www-form-urlencoded
+app.use(express.urlencoded({
+    extended: false
+}));
+
 
 const numCpu = (os.cpus.length == 0)?4:os.cpus.length;
 
 const port = process.env.PORT || 8005;
 app.set('port', port);
 app.use(cors())
-const url = process.env.URL;
-app.set('url', url);
+const url = process.env.url
+console.log(url);
+app.set('url',url);
 const usersRoute = require('./routes/index.js');
+//ROUTES
 app.use(usersRoute);
 const sequelize = require('./models').sequelize;
+
+// Checks DB connection
+const dbConnection = require('./config/sequelizeConfig');
 
 sequelize
   .authenticate()
@@ -40,6 +52,7 @@ sequelize
         console.log(`\n Listening on port   ${app.get('url')}:${app.get('port')}@${process.pid}  \n`);
       });
     }
+    console.log('database Connection has been established successfully.');
   })
   .catch((err) => {
     console.log('Unable to connect to the database:', err);
